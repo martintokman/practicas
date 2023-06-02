@@ -16,7 +16,7 @@ def validar_nombre(nombre):
 
 
 nombre = input("Ingresa tu nombre: ")
-print(validar_nombre(nombre))
+print(validar_nombre(nombre))  
 
 #fecha_nac = input("Ingresa tu fecha de nacimiento en formato dd/mm/yyyy:")
 #direccion = input("Ingresa tu dirección: ")
