@@ -8,6 +8,7 @@ import datetime
 #Definición de funciones
 def validar_nombre(nombre):
     while True:
+        nombre = nombre.capitalize()
         if nombre == "*":
             print("Entrada inválida.")
             nombre = input("Ingresa tu nombre: ")
@@ -59,8 +60,18 @@ def validar_fecha(fecha_nac):
     
 
 
-#nombre = input("Ingresa tu nombre: ")
-#print(validar_nombre(nombre))
+nombre = input("Ingresa tu nombre: ")
+validar_nombre(nombre)
 fecha_nac = input("Ingresa tu fecha de nacimiento en formato dd/mm/yyyy: ")
-print(validar_fecha(fecha_nac))
+validar_fecha(fecha_nac)
+direccion = input("Ingresa tu dirección: ")
+metas = input("Ingresa tus metas: ")
+
+print(f"""Te paso el resumen:\n
+      - Nombre: {nombre}
+      - Fecha de nacimiento: {fecha_nac}
+      - Dirección: {direccion}
+      - Metas: {metas}
+      """)
+
 
