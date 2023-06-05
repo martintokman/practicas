@@ -12,6 +12,7 @@ ganadas_compu = 0
 partidos_totales = 0
 
 
+
 def validar_jugada(jugada_usuario):
     
     if jugada_usuario in lista_jugadas:

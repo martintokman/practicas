@@ -8,7 +8,7 @@ El juego termina cuando el usuario indica (S) para salir.
 Al finalizar el juego se Se muestran los números de ganados y perdidos por cada jugador junto con el % de juegos ganados
 y un mensaje de felicitaciones.
 
-Posibilidades:
+Posibilidades: 
 
 	
 	| USUARIO | COMPU |  RESULTADO  |
