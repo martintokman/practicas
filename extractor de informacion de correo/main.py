@@ -1,14 +1,5 @@
 #Extractor de información del correo electrónico
-'''
-Recopile una dirección de correo electrónico del usuario y luego averigüe si el usuario tiene un nombre de dominio personalizado o un nombre de dominio popular. Por ejemplo
 
-Recopilamos una dirección de correo electrónico del usuario y luego vamos a averiguar si ese email tiene nombre de dominio personalizado o un nombre de un dominio popular. Por ejemplo:
-
-Entrada: mary.jane@gmail.com
-Salida: Hola Mary, estoy viendo que tu email está registrado con Google. ¡Eso es genial!.
-Entrada: peter.pan@myfantasy.com
-Salida: Hola Peter, estoy observando que estás utilizando un dominio personalizado de myfantasy. ¡Impresionante!.
-'''
 direccion_correo = ""
 nombre_usuario = ""
 dominio = ""
