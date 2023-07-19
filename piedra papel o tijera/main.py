@@ -1,112 +1,119 @@
-#Piedra, papel o tijera
-import sys
+
 import random
 
-#Declaro las variables globales
-lista_jugadas = ["I", "P", "T"]
-jugada_usuario = ""
-jugada_compu = ""
 empates = 0
-ganadas_usuario = 0
-ganadas_compu = 0
+ganados_usuario = 0
+ganados_compu = 0
 partidos_totales = 0
 
-
-
-def validar_jugada(jugada_usuario):
-    
-    if jugada_usuario in lista_jugadas:
-        validar_jugada_resultado = random.choice(lista_jugadas)
-        return validar_jugada_resultado
-        
-    elif jugada_usuario not in lista_jugadas and jugada_usuario == "S":
-        validar_jugada_resultado = "S"
-        return validar_jugada_resultado
-    
-    else:
-        validar_jugada_resultado = "JNP" #Jugada No Permitida
-        return validar_jugada_resultado
-    
-   
-def obtener_ganador(jugada_usuario, jugada_compu):
-    jugada_compu = jugada_compu
-    jugada_usuario = jugada_usuario
-    
-    #Evalúo el ganador
-    if jugada_usuario == "I" and jugada_compu == "I":
-        ganador = "Empate"
-        return ganador
-        
-    elif jugada_usuario == "I" and jugada_compu == "P":
-        ganador = "La compu"
-        return ganador
-        
-    elif jugada_usuario == "I" and jugada_compu == "T":
-        ganador = "El usuario"
-        return ganador
-        
-    elif jugada_usuario == "P" and jugada_compu == "I":
-        ganador = "El usuario"
-        return ganador
-        
-    elif jugada_usuario == "P" and jugada_compu == "P":
-        ganador = "Empate"
-        return ganador
-        
-    elif jugada_usuario == "P" and jugada_compu == "T":
-        ganador = "La compu"
-        return ganador
-         
-    elif jugada_usuario == "T" and jugada_compu == "I":
-        ganador = "La compu"
-        return ganador
-        
-    elif jugada_usuario == "T" and jugada_compu == "P":
-        ganador = "El usuario"
-        return ganador
-        
-    elif jugada_usuario == "T" and jugada_compu == "T":
-        ganador = "Empate"
-        return ganador
-        
-
-
-
 while True:
-    jugada_usuario = input("Indique su jugada:\n Piedra(I), papel(P) o tijera(T): ")
+    jugada_usuario = input("Ingresa tu jugada: piedra(I), papel(P), tijera(T) o salir(S):")
     jugada_usuario = jugada_usuario.upper()
-    validar_jugada_resultado = validar_jugada(jugada_usuario) #3 opciones: (I/P/T, S, JNP)
-    if validar_jugada_resultado == "S":
+    
+    #si elige "S" termina el juego y muestro resultados
+    if jugada_usuario == "S":
         break
-    elif validar_jugada_resultado == "JNP":
-        print("Jugada no permitida. Intenta con: piedra(I), papel(P) o tijera(T)")
-        continue
-    else:
-        jugada_compu = validar_jugada_resultado
-        ganador = obtener_ganador(jugada_usuario , jugada_compu)
-        if ganador == "La compu":
-            print(f"La compu juega: {jugada_compu}")
-            print(f"El ganador es: {ganador}!")
-            print("-----------------------------------------------")
-            ganadas_compu += 1
-            partidos_totales +=1
-        elif ganador == "El usuario":
-            print(f"La compu juega: {jugada_compu}")
-            print(f"El ganador es: {ganador}!")
-            print("-----------------------------------------------")
-            ganadas_usuario +=1
-            partidos_totales +=1
-        else:
-            print(f"La compu juega: {jugada_compu}")
-            print(f"El ganador es: {ganador}!")
-            print("-----------------------------------------------")
+    elif jugada_usuario == "I" or jugada_usuario == "T" or jugada_usuario == "P":
+        #empieza el juego
+        lista_jugadas_compu = ["I", "P", "T"]
+        jugada_compu = random.choice(lista_jugadas_compu)
+        
+        #evalúo las posibilidades y asigno los resultados
+        if jugada_usuario == "I" and jugada_compu == "I":
+            #empate
             empates += 1
             partidos_totales +=1
-   
-#Terminó el juego. Muestro los resultados
-print("Resultados del juego:")
-print(f"Ganadas compu: {ganadas_compu}")
-print(f"Ganadas usuario: {ganadas_usuario}")
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: Empate!")
+            print()
+
+        if jugada_usuario == "I" and jugada_compu == "P":
+            #compu
+            ganados_compu += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó la compu!")
+            print()
+
+        if jugada_usuario == "I" and jugada_compu == "T":
+            #usuario
+            ganados_usuario += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó el usuario!")
+            print()
+
+        if jugada_usuario == "P" and jugada_compu == "I":
+            #usuario
+            ganados_usuario += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó el usuario!")
+            print()
+
+        if jugada_usuario == "P" and jugada_compu == "P":
+            #empate
+            empates += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: Empate!")
+            print()
+
+        if jugada_usuario == "P" and jugada_compu == "T":
+            #compu
+            ganados_compu += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó la compu!")
+            print()
+
+        if jugada_usuario == "T" and jugada_compu == "I":
+            #compu
+            ganados_compu += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó la compu!")
+            print()
+
+        if jugada_usuario == "T" and jugada_compu == "P":
+            #usuario
+            ganados_usuario += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: ganó el usuario!")
+            print()
+
+        if jugada_usuario == "T" and jugada_compu == "T":
+            #empate
+            empates += 1
+            partidos_totales +=1
+            print(f"La compu jugó : {jugada_compu}")
+            print("Resultado: Empate!")
+            print()
+      
+        continue
+
+    else:
+        #jugada no permitida
+        print("Jugada no permitida, vuelve a intentar:")
+        continue    
+
+
+print("Fin del juego, estos son los resultados:")
+print(f"Partidos totales: {partidos_totales}")
 print(f"Empates: {empates}")
-print(f"Partidos totales {partidos_totales}")
-print(f"% de partidos ganados {int((ganadas_usuario / partidos_totales)*100)}%")
+print(f"Partidos ganados por el usuario: {ganados_usuario}")
+print(f"Partidos ganados por la compu: {ganados_compu}")
+
+#si no se jugó ningún partido no se puede sacar el % de partidos ganados
+if partidos_totales > 0:
+    porcentaje_ganados_usuario = (ganados_usuario * 100) / partidos_totales
+    print(f"Porcentaje de partidos ganados: {porcentaje_ganados_usuario}%")
+
+    
+
+
+
+
+
+
