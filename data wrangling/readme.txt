@@ -33,6 +33,8 @@
 		#Mode Imputation: For discrete or categorical data, 
 		#you can replace missing values with the mode (most frequent) value in the same column.
 
+		#Backward / Forward imputation: 
+
 		#Interpolation: For time-series data, you can use interpolation methods to estimate missing values based on the values 
 		#before and after the missing point in time.
 		
@@ -49,9 +51,14 @@
 
 	#Impute missing categorical values. (revisar)
 
-	#Drop columns with more than 15% percentage of missing values.
-		#For one specific column
-		#For all columns
+	#Drop rows and columns with NaN values
+		#Drop rows
+			#Where all elements are missing
+			#keep only rows with at least 2 non-NA values
+		#Drop all columns with missing values
+		#with more than 15% percentage of missing values. 
+			#For one specific column
+			#For all columns
 
 
 #Handling Duplicates:
