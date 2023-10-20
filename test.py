@@ -77,7 +77,7 @@ check1.pack(side='left', padx=2, pady=2)
 check2.pack(side='left', padx=2, pady=2)
 checkbox_frame.grid(row=3, column=0, columnspan=3)
 
-
+bottom_buttom.grid(row=4,column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
 
 
 #run
