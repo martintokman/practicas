@@ -26,11 +26,13 @@ button_left_1 = ttk.Button(frame_left, text='Button 1')
 button_left_2 = ttk.Button(frame_left, text='Button 2')
 button_left_3 = ttk.Button(frame_left, text='Button 3')
 
-scale1 = ttk.Scale(frame_left, orient='vertical')
-scale2 = ttk.Scale(frame_left, orient='vertical')
+scale1 = ttk.Label(frame_left, text='Label', background='red')
+scale2 = ttk.Label(frame_left, text='Label', background='blue')
 
-check1 = ttk.Checkbutton(frame_left, text='Check 1')
-check2 = ttk.Checkbutton(frame_left, text='Check 2')
+#checkbox_frame & widget
+checkbox_frame = ttk.Frame(frame_left)
+check1 = ttk.Checkbutton(checkbox_frame, text='Check 1')
+check2 = ttk.Checkbutton(checkbox_frame, text='Check 2')
 
 bottom_buttom = ttk.Button(frame_left)
 
@@ -68,8 +70,14 @@ button_left_1.grid(row= 0, column= 0, columnspan=2, sticky='nsew', padx=2, pady=
 button_left_2.grid(row= 0, column= 2, sticky='nsew', padx=2, pady=2)
 button_left_3.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
 
-scale1.grid(row=2, column=0)
-scale2.grid(row=2, column=2)
+scale1.grid(row=2, column=0, sticky='nswe', padx=2, pady=2)
+scale2.grid(row=2, column=2, sticky='nswe', padx=2, pady=2)
+
+check1.pack(side='left', padx=2, pady=2)
+check2.pack(side='left', padx=2, pady=2)
+checkbox_frame.grid(row=3, column=0, columnspan=3)
+
+
 
 
 #run
