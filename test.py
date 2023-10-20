@@ -1,25 +1,49 @@
 from tkinter import *
 import ttkbootstrap as ttk
 import tkinter as tk
+import sys
+
+
+
 
 #window
 window = ttk.Window()
 window.geometry('600x600')
 
+window.bind('<Escape>', lambda event: sys.exit())
+
+
 #mainframes
 frame_left = ttk.Frame(window)
+
+#configure frame_left grid
+frame_left.columnconfigure((0,1,2) ,weight=1, uniform='a')
+frame_left.rowconfigure((0,1,2,3), weight=1, uniform='a')
+
+
+#frame_left widgets
+button1 = ttk.Button(frame_left, text='Button 1')
+button2 = ttk.Button(frame_left, text='Button 2')
+button3 = ttk.Button(frame_left, text='Button 3')
+scale1 = ttk.Scale(frame_left)
+scale2 = ttk.Scale(frame_left)
+check1 = ttk.Checkbutton(frame_left, text='Check 1')
+check2 = ttk.Checkbutton(frame_left, text='Check 2')
+bottom_buttom = ttk.Button(frame_left)
+
+button1.grid(row= 0, column= 0, columnspan=2, sticky='nsew', padx=2, pady=2)
+button2.grid(row= 0, column= 2, sticky='nsew', padx=2, pady=2)
+button3.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
+
+
 
 frame_right = ttk.Frame(window)
 frame_right_1 = ttk.Frame(frame_right)
 frame_right_2 = ttk.Frame(frame_right)
 
 
-
-
-
-
 #widgets
-label_frame_left = ttk.Label(frame_left, text='Frame left', background='orange')
+
 
 label1= ttk.Label(frame_right_1, text='Label 1', background='red')
 button1= ttk.Button(frame_right_1, text='Button 1')
@@ -30,7 +54,7 @@ button2= ttk.Button(frame_right_2, text='Button 2')
 #layout
 frame_left.place(relx=0, rely=0, relwidth=0.4, relheight=1)
 frame_right.place(relx=0.4, rely=0, relwidth=0.6, relheight=1)
-label_frame_left.pack(expand=True, fill='both')
+
 
 
 frame_right_2.place(relx=0, rely=0, relwidth=0.5, relheight=1)
