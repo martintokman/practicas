@@ -22,18 +22,17 @@ frame_left.rowconfigure((0,1,2,3), weight=1, uniform='a')
 
 
 #frame_left widgets
-button1 = ttk.Button(frame_left, text='Button 1')
-button2 = ttk.Button(frame_left, text='Button 2')
-button3 = ttk.Button(frame_left, text='Button 3')
-scale1 = ttk.Scale(frame_left)
-scale2 = ttk.Scale(frame_left)
+button_left_1 = ttk.Button(frame_left, text='Button 1')
+button_left_2 = ttk.Button(frame_left, text='Button 2')
+button_left_3 = ttk.Button(frame_left, text='Button 3')
+
+scale1 = ttk.Scale(frame_left, orient='vertical')
+scale2 = ttk.Scale(frame_left, orient='vertical')
+
 check1 = ttk.Checkbutton(frame_left, text='Check 1')
 check2 = ttk.Checkbutton(frame_left, text='Check 2')
-bottom_buttom = ttk.Button(frame_left)
 
-button1.grid(row= 0, column= 0, columnspan=2, sticky='nsew', padx=2, pady=2)
-button2.grid(row= 0, column= 2, sticky='nsew', padx=2, pady=2)
-button3.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
+bottom_buttom = ttk.Button(frame_left)
 
 
 
@@ -42,29 +41,36 @@ frame_right_1 = ttk.Frame(frame_right)
 frame_right_2 = ttk.Frame(frame_right)
 
 
-#widgets
+#widgets right frame 
+label_right_1= ttk.Label(frame_right_1, text='Label 1', background='red')
+button_right_1= ttk.Button(frame_right_1, text='Button 1')
+
+label_right_2= ttk.Label(frame_right_2, text='Label 2', background='blue')
+button_right_2= ttk.Button(frame_right_2, text='Button 2')
 
 
-label1= ttk.Label(frame_right_1, text='Label 1', background='red')
-button1= ttk.Button(frame_right_1, text='Button 1')
 
-label2= ttk.Label(frame_right_2, text='Label 2', background='blue')
-button2= ttk.Button(frame_right_2, text='Button 2')
 
 #layout
 frame_left.place(relx=0, rely=0, relwidth=0.4, relheight=1)
 frame_right.place(relx=0.4, rely=0, relwidth=0.6, relheight=1)
 
-
-
 frame_right_2.place(relx=0, rely=0, relwidth=0.5, relheight=1)
 frame_right_1.place(relx=0.5, rely=0, relwidth=0.5, relheight=1)
 
-label1.pack(expand=True, fill='both', padx= 2, pady=2)
-label2.pack(expand=True, fill='both', padx= 2, pady=2)
+label_right_1.pack(expand=True, fill='both', padx= 2, pady=2)
+label_right_2.pack(expand=True, fill='both', padx= 2, pady=2)
 
-button1.pack(expand= True, fill='both', padx= 2, pady=2)
-button2.pack(expand= True, fill='both', padx= 2, pady=2)
+button_right_1.pack(expand= True, fill='both', padx= 2, pady=2)
+button_right_2.pack(expand= True, fill='both', padx= 2, pady=2)
+
+button_left_1.grid(row= 0, column= 0, columnspan=2, sticky='nsew', padx=2, pady=2)
+button_left_2.grid(row= 0, column= 2, sticky='nsew', padx=2, pady=2)
+button_left_3.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
+
+scale1.grid(row=2, column=0)
+scale2.grid(row=2, column=2)
+
 
 #run
 window.mainloop()
