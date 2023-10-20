@@ -7,22 +7,34 @@ window = ttk.Window()
 window.geometry('600x600')
 
 #mainframes
-frame_left = ttk.Frame()
-frame_right = ttk.Frame()
+frame_left = ttk.Frame(window)
+
+frame_right = ttk.Frame(window)
+frame_right_1 = ttk.Frame(frame_right)
+frame_right_2 = ttk.Frame(frame_right)
+
+
 
 
 
 
 #widgets
 label_frame_left = ttk.Label(frame_left, text='Frame left', background='orange')
-label_frame_right = ttk.Label(frame_right, text='Frame right', background='blue')
 
+label1= ttk.Label(frame_right_1, text='Label 1', background='red')
+label2= ttk.Label(frame_right_2, text='Label 2', background='blue')
 
 #layout
 frame_left.place(relx=0, rely=0, relwidth=0.4, relheight=1)
 frame_right.place(relx=0.4, rely=0, relwidth=0.6, relheight=1)
 label_frame_left.pack(expand=True, fill='both')
-label_frame_right.pack(expand=True, fill='both')
+
+
+frame_right_2.place(relx=0, rely=0, relwidth=0.5, relheight=1)
+frame_right_1.place(relx=0.5, rely=0, relwidth=0.5, relheight=1)
+
+label1.pack(expand=True, fill='both')
+label2.pack(expand=True, fill='both')
 
 
 #run
