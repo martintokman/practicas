@@ -22,7 +22,10 @@ frame_right_2 = ttk.Frame(frame_right)
 label_frame_left = ttk.Label(frame_left, text='Frame left', background='orange')
 
 label1= ttk.Label(frame_right_1, text='Label 1', background='red')
+button1= ttk.Button(frame_right_1, text='Button 1')
+
 label2= ttk.Label(frame_right_2, text='Label 2', background='blue')
+button2= ttk.Button(frame_right_2, text='Button 2')
 
 #layout
 frame_left.place(relx=0, rely=0, relwidth=0.4, relheight=1)
@@ -33,9 +36,11 @@ label_frame_left.pack(expand=True, fill='both')
 frame_right_2.place(relx=0, rely=0, relwidth=0.5, relheight=1)
 frame_right_1.place(relx=0.5, rely=0, relwidth=0.5, relheight=1)
 
-label1.pack(expand=True, fill='both')
-label2.pack(expand=True, fill='both')
+label1.pack(expand=True, fill='both', padx= 2, pady=2)
+label2.pack(expand=True, fill='both', padx= 2, pady=2)
 
+button1.pack(expand= True, fill='both', padx= 2, pady=2)
+button2.pack(expand= True, fill='both', padx= 2, pady=2)
 
 #run
 window.mainloop()
