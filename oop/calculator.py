@@ -45,32 +45,36 @@ class divide(Calculator):
 print("Welcome to the calculator")
 
 while True:
-    number1 = int(input("First number: "))
-    number2 = int(input("Second number: "))
-    operation = input("Operation: ")
+    try:
+        number1 = float(input("First number: "))
+        number2 = float(input("Second number: "))
+        operation = input("Operation: ")
+    except ValueError:
+        print("Invalid number")
+        continue
 
     if operation == "+":
         sum_var = sum(number1, number2)
         sum_var.current_result()
-        #sum.current_equation()
+        
         
 
     elif operation == "-":
         subtract_var = subtract(number1, number2)
         subtract_var.current_result()
-        #subtract.current_equation()
+        
         
 
     elif operation == "*":
         multiply_var = multiply(number1, number2)
         multiply_var.current_result()
-        #multiply.current_equation()
+        
         
 
     elif operation == "/":
         divide_var = divide(number1, number2)
         divide_var.current_result()
-        #divide.current_equation()
+        
         
 
     else:
