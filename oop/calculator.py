@@ -38,11 +38,16 @@ class multiply(Calculator):
 class divide(Calculator):
     def __init__(self, number1, number2):
         super().__init__(number1, number2)
-        self.result = f"{number1} / {number2} = {number1 / number2}"
+        try:
+            self.result = f"{number1} / {number2} = {number1 / number2}"
+        except ZeroDivisionError:
+            self.result = ":You can't divide by zero"
         
 
 
-print("Welcome to the calculator")
+print("Welcome to the calculator.")
+
+
 
 while True:
     try:
