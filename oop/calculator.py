@@ -42,6 +42,11 @@ class divide(Calculator):
             self.result = f"{number1} / {number2} = {number1 / number2}"
         except ZeroDivisionError:
             self.result = ":You can't divide by zero"
+
+class power(Calculator):
+    def __init__(self, number1, number2):
+        super().__init__(number1, number2)
+        self.result = f"{number1} ** {number2} = {number1 ** number2}"
         
 
 
@@ -79,6 +84,10 @@ while True:
     elif operation == "/":
         divide_var = divide(number1, number2)
         divide_var.current_result()
+
+    elif operation == "**":
+        power_var = power(number1, number2)
+        power_var.current_result()
         
         
 
