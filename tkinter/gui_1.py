@@ -3,6 +3,7 @@ import ttkbootstrap as ttk
 import tkinter as tk
 import sys
 
+#Main window
 class App(tk.Tk):
     def __init__(self, title, size):
         super().__init__()
@@ -21,7 +22,7 @@ class App(tk.Tk):
         #run
         self.mainloop()
 
-
+#Menu frame (left mainframe)
 class Menu(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
@@ -30,47 +31,78 @@ class Menu(ttk.Frame):
         self.place(relx=0, rely=0, relwidth=0.4, relheight=1)
 
     def create_widgets(self):
-        
-        #widgets
-        button_left_1 = ttk.Button(self, text='Button 1')
-        button_left_2 = ttk.Button(self, text='Button 2')
-        button_left_3 = ttk.Button(self, text='Button 3')
+        Menu_row_0(self).pack(expand=True, fill='both', padx=2, pady=2)
+        Menu_row_1(self).pack(expand=True, fill='both', padx=2, pady=2)
+        Menu_row_2(self).pack(expand=True, fill='both', padx=2, pady=2)
+        Menu_row_3_and_4(self).pack(expand=True, fill='both', padx=2, pady=2)
+        Menu_row_5(self).pack(expand=True, fill='both', padx=2, pady=2)
 
+
+class Menu_row_0(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+ 
+        #create widgets
+        menu_row_0_button_1 = ttk.Button(self, text='Button 1')
+        menu_row_0_button_2 = ttk.Button(self, text='Button 2') 
+    
+        #create layout
+        menu_row_0_button_1.pack(side='left', expand=True, fill='both', padx=2, pady=2)
+        menu_row_0_button_2.pack(side='left', expand=True, fill='both', padx=2, pady=2)
+
+class Menu_row_1(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+ 
+        #create widgets
+        menu_row_1_button_1 = ttk.Button(self, text='Button 1')
+        
+        #create layout
+        menu_row_1_button_1.pack(side='left', padx=2, pady=2, expand=True, fill='both')
+               
+class Menu_row_2(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        #create grid
+        self.rowconfigure((0,1), weight=1, uniform='a')
+        self.columnconfigure((0,1,2), weight=1, uniform='a')
+ 
+        #create widgets
         scale1 = ttk.Scale(self, orient='vertical' )
         scale2 = ttk.Scale(self, orient='vertical' )
-
-        #checkbox_frame & widgets
-        checkbox_frame = ttk.Frame(self)
-        check1 = ttk.Checkbutton(checkbox_frame, text='Check 1')
-        check2 = ttk.Checkbutton(checkbox_frame, text='Check 2')
         
-
-        #bottom entry
-        bottom_entry = ttk.Entry(self)
-
-        #grid
-        self.columnconfigure((0,1,2) ,weight=1, uniform='a')
-        self.rowconfigure((0,1,2,3,4,5), weight=1, uniform='a')
-
+        #create layout
+        scale1.grid(row=0, column=0, sticky='nswe', padx=2, pady=10, rowspan=2)
+        scale2.grid(row=0, column=2, sticky='nswe', padx=2, pady=10, rowspan=2)
         
-        #layout
-        button_left_1.grid(row= 0, column= 0, columnspan=2, sticky='nsew', padx=2, pady=2)
-        button_left_2.grid(row= 0, column= 2, sticky='nsew', padx=2, pady=2)
-        button_left_3.grid(row=1, column=0, columnspan=3, sticky='nsew', padx=2, pady=2)
+class Menu_row_3_and_4(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+ 
+        #create grid
+        self.rowconfigure(0)
+        self.columnconfigure((0,1,2), weight=1, uniform='a')
+ 
+        #create widgets
+        check1 = ttk.Checkbutton(self, text='Check 1')
+        check2 = ttk.Checkbutton(self, text='Check 2')
         
-        scale1.grid(row=2, column=0, sticky='nswe', padx=2, pady=10, rowspan=2)
-        scale2.grid(row=2, column=2, sticky='nswe', padx=2, pady=10, rowspan=2)
+        #create layout
+        check1.grid(row=0, column=0, sticky='nswe', padx=2, pady=10, rowspan=2)
+        check2.grid(row=0, column=2, sticky='nswe', padx=2, pady=10, rowspan=2)
 
-        
-        check1.pack(side='left', padx=2, pady=2)
-        check2.pack(side='left', padx=2, pady=2)
-        checkbox_frame.grid(row=4, column=0, columnspan=3)
+class Menu_row_5(ttk.Frame):
+    def __init__(self, parent):
+        super().__init__(parent)
+ 
+        #create widgets
+        bottom_entry = ttk.Entry(self, justify='center')
+    
+        #create layout
+        bottom_entry.pack(side='bottom', pady=5)
 
-        bottom_entry.place(relx=0.5, rely=0.97, relwidth=0.7, relheight=0.03, anchor='center')
-        
-        
-
-
+#Main frame (right mainframe)
 class Main(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
@@ -122,8 +154,5 @@ class Main_right(ttk.Frame):
        
 
 
-
+#run
 App('Test GUI', (600,600))
-
-
-
